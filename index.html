@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JegerLosen — Din los mot Jegerprøven</title>
+    <style>
+        :root {
+            --bg-color: #0d1112;
+            --card-bg: #151a1c;
+            --accent: #3a5a40;
+            --accent-hover: #4f7754;
+            --text-main: #f0f4f2;
+            --text-muted: #8b9a94;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .platform-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .hero {
+            padding: 4rem 0 5rem 0;
+            text-align: center;
+        }
+
+        /* Stilren prislapp */
+        .price-tag {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            background-color: rgba(58, 90, 64, 0.2);
+            color: #a3b18a;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(58, 90, 64, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 1rem 2.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover { background-color: var(--accent-hover); }
+        .cta-btn svg { margin-right: 10px; fill: currentColor; flex-shrink: 0; }
+
+        .showcase {
+            padding: 2rem 0 6rem 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scrollbar-width: none;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            flex: 0 0 calc(25% - 1.125rem);
+            min-width: 210px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 0.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .details-section {
+            background-color: var(--card-bg);
+            padding: 5rem 0;
+            border-radius: 24px;
+            margin-bottom: 6rem;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-block h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .info-block p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .info-block li { margin-bottom: 0.75rem; }
+
+        footer {
+            padding: 6rem 0 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-qr {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            background: #fff;
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        footer h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .carousel-item { flex: 0 0 calc(50% - 0.75rem); }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 500px) {
+            .carousel-item { flex: 0 0 85%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="brand">
+                <img src="logoqr.png" alt="JegerLosen Logo" class="brand-logo">
+                <span class="brand-text">JegerLosen</span>
+            </div>
+            <div class="platform-badge">Kun til Android</div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="price-tag">Kun 59,- (engangskjøp)</div>
+            <h1>JegerLosen – Din los mot Jegerprøven! 🌲🦆</h1>
+            <p class="hero-subtitle">
+                Jegerprøven i quizmodus! Gjennomgå pensum enkelt og morsomt med 1200 relevante spørsmål, og mye billigere enn alternative apper! Er du ikke fornøyd kan du be om refusjon i løpet av de første fire timene.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.quiz.jeger" target="_blank" class="cta-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M17.52 2.5a.5.5 0 0 0-.7-.1l-1.65 1.15A11.93 11.93 0 0 0 12 3c-1.15 0-2.26.16-3.17.45L7.18 2.3a.5.5 0 0 0-.7.1l-.38.54a.5.5 0 0 0 .1.7l1.55 1.08C5.9 6.2 4.6 8.4 4.1 11H20c-.5-2.6-1.8-4.8-3.65-6.38l1.55-1.08a.5.5 0 0 0 .1-.7l-.38-.54zM7.5 9c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm9 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM2 12h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/>
+                </svg>
+                Last ned på Google Play
+            </a>
+        </section>
+
+        <!-- App Showcase Karusell -->
+        <section class="showcase">
+            <h2 class="section-title">Utforsk appen</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="1000044390.png" alt="Appvalg og oppsett">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="1000044399.png" alt="Artsoversikt">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="1000044405.png" alt="Spørsmål i appen">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="1000044393.png" alt="Statistikkoversikt">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Features Section -->
+        <section class="details-section">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="info-block">
+                        <h3>Effektiv støtte til pensum</h3>
+                        <p>Skal du ta jegerprøven? JegerLosen er verktøyet som gjør veien til bestått prøve både morsommere og mer effektiv. Appen fungerer som en interaktiv støtte til pensum, slik at du kan teste kunnskapene dine mens du leser.</p>
+                        
+                        <h3>Norges mest omfattende?</h3>
+                        <p>Over 1200 kvalitetssikrede spørsmål som dekker hele pensum. Spørsmålene har realistiske distraktorer som ruster deg til den ekte eksamenen.</p>
+                        
+                        <h3>Lær av dine feil</h3>
+                        <p>Ingen tørre fasitsvar. Ved å trykke på info-ikonet etter hvert spørsmål, får du en utvidet info og dypere forklaring, slik at du forstår teorien bak og lærer av feilene dine.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h3>Hvorfor velge JegerLosen?</h3>
+                        <ul>
+                            <li><strong>Full kontroll på progresjonen:</strong> Bruk statistikk-ikonet i toppen for å se nøyaktig hvilke temaer du mestrer, og hvilke du bør lese mer på.</li>
+                            <li><strong>Gode tester:</strong> Velg å bryne deg på alle kategorier, fokuser på 1–7 utvalgte temaer, eller kjør en fullstendig tentamen for å sjekke om du er klar for den ekte prøven.</li>
+                            <li><strong>Detaljer i fokus:</strong> Er bildet for lite? Ikke noe problem – du kan trykke på bildene for å zoome inn på detaljer av vilt og utstyr.</li>
+                        </ul>
+                        
+                        <br>
+                        <h3>Sosial læring og dueller ⚔️</h3>
+                        <p>Læring trenger ikke å være en ensom prosess! Med vår duell-funksjon kan du utfordre venner og kjente. Bruk knappen «Inviter jegervenn» hvis du kjenner kallenavnet deres, kjør en rematch i samme modus, og kjemp om en plass på Highscore online.</p>
+
+                        <h3>Tilpass din opplevelse</h3>
+                        <p>Gjør appen til din egen! Du kan enkelt endre farger på både bakgrunn og knapper via ikonene i toppmenyen for en mer behagelig leseopplevelse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <img src="logoqr.png" alt="Google Play QR Kode" class="footer-qr">
+            <h3>Klar for jaktsesongen? Kjøp JegerLosen for kun 59,- og last ned i dag!</h3>
+            <a href="https://play.google.com/store/apps/details?id=com.quiz.jeger" target="_blank" class="cta-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M17.52 2.5a.5.5 0 0 0-.7-.1l-1.65 1.15A11.93 11.93 0 0 0 12 3c-1.15 0-2.26.16-3.17.45L7.18 2.3a.5.5 0 0 0-.7.1l-.38.54a.5.5 0 0 0 .1.7l1.55 1.08C5.9 6.2 4.6 8.4 4.1 11H20c-.5-2.6-1.8-4.8-3.65-6.38l1.55-1.08a.5.5 0 0 0 .1-.7l-.38-.54zM7.5 9c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm9 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM2 12h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/>
+                </svg>
+                Last ned på Google Play
+            </a>
+            <p>&copy; 2026 JegerLosen. Utviklet som en uavhengig, personvernfokusert Android-app.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
