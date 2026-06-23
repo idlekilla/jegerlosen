@@ -32,7 +32,8 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem; /* Justert for å sikre konsekvent luft på sidene */
+            width: 100%;
         }
 
         header {
@@ -75,7 +76,6 @@
             text-align: center;
         }
 
-        /* Stilren prislapp */
         .price-tag {
             display: inline-block;
             font-size: 0.9rem;
@@ -168,18 +168,26 @@
             display: block;
         }
 
+        /* OPPDATERT: Sikrer at rammene krymper elegant på mobil uten tekst-overflow */
         .details-section {
             background-color: var(--card-bg);
-            padding: 5rem 0;
+            padding: 4rem 0;
             border-radius: 24px;
             margin-bottom: 6rem;
             border: 1px solid rgba(255, 255, 255, 0.02);
+            overflow: hidden; /* Forhindrer uønsket utstikk */
         }
 
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+
+        .info-block {
+            width: 100%;
+            word-wrap: break-word; /* Knekker lange strenger om nødvendig */
         }
 
         .info-block h3 {
@@ -200,7 +208,11 @@
             font-size: 1.05rem;
         }
 
-        .info-block li { margin-bottom: 0.75rem; }
+        .info-block li { 
+            margin-bottom: 0.75rem; 
+            text-indent: -1.25rem; /* Beholder innrykket pent selv om teksten brekker */
+            padding-left: 1.25rem;
+        }
 
         footer {
             padding: 6rem 0 4rem 0;
@@ -228,13 +240,17 @@
             margin-top: 2rem;
         }
 
+        /* RESPONSIVE JUSTERINGER */
         @media (max-width: 900px) {
             .carousel-item { flex: 0 0 calc(50% - 0.75rem); }
             .hero h1 { font-size: 2.5rem; }
+            .details-section { border-radius: 16px; padding: 3rem 0; }
         }
 
         @media (max-width: 500px) {
             .carousel-item { flex: 0 0 85%; }
+            .hero h1 { font-size: 2rem; }
+            .details-grid { gap: 2rem; }
         }
     </style>
 </head>
