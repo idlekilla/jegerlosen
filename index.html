@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JegerLosen — Din los mot Jegerprøven</title>
+  <title>JegerLosen — Din los mot jegerprøven</title>
   <style>
     :root{
       --bg:#0b0f10;
@@ -46,36 +46,17 @@
       padding:0.75rem 0 1.25rem;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+    .brand{display:flex;align-items:center;gap:12px}
     .brand-logo{
-      width:52px;
-      height:52px;
-      border-radius:10px;
+      width:52px;height:52px;border-radius:10px;
       background:linear-gradient(135deg,#111 0%, rgba(255,255,255,0.02) 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-      border:1px solid var(--glass);
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);border:1px solid var(--glass);
     }
     .brand-logo img{width:100%; height:100%; object-fit:cover; display:block}
-    .brand-title{
-      font-weight:800;
-      letter-spacing:-0.02em;
-      font-size:1.05rem;
-    }
-    .tagline{
-      color:var(--muted);
-      font-size:0.85rem;
-      margin-top:2px;
-    }
+    .brand-title{font-weight:800;letter-spacing:-0.02em;font-size:1.05rem}
+    .tagline{color:var(--muted);font-size:0.85rem;margin-top:2px}
 
-    /* badge: ensure single-line */
     .badge{
       background: linear-gradient(180deg,var(--glass), rgba(255,255,255,0.02));
       color:var(--muted);
@@ -84,7 +65,7 @@
       font-weight:700;
       font-size:0.82rem;
       border:1px solid rgba(255,255,255,0.03);
-      white-space:nowrap; /* keep on one line */
+      white-space:nowrap;
     }
 
     /* Hero */
@@ -110,7 +91,7 @@
     h1{
       font-size:2.2rem;
       margin:0.8rem 0;
-      line-height:1.06;
+      line-height:1.08;
       letter-spacing:-0.02em;
     }
 
@@ -119,6 +100,7 @@
       font-size:1rem;
       margin-bottom:1.1rem;
       max-width:60ch;
+      line-height:1.55;
     }
 
     .cta-row{
@@ -126,6 +108,7 @@
       gap:12px;
       align-items:center;
       flex-wrap:wrap;
+      margin-top:0.6rem;
     }
 
     .btn{
@@ -147,12 +130,8 @@
 
     .hero-right{display:flex;justify-content:center;align-items:center}
     .phone-mock{
-      width:300px;
-      border-radius:22px;
-      background: linear-gradient(180deg,#0c1212, #091010);
-      padding:14px;
-      box-shadow: 0 26px 50px rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.03);
+      width:300px;border-radius:22px;background: linear-gradient(180deg,#0c1212, #091010);
+      padding:14px;box-shadow: 0 26px 50px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03);
     }
     .phone-mock img{width:100%; border-radius:10px; display:block}
 
@@ -161,44 +140,35 @@
     .section-title{font-size:1.2rem;margin-bottom:0.9rem;font-weight:800}
 
     .carousel{
-      display:flex;
-      gap:0.9rem;
-      overflow-x:auto;
-      padding:0.9rem 0 0;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling: touch;
+      display:flex;gap:0.9rem;overflow-x:auto;padding:0.9rem 0 0;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling: touch;
     }
     .carousel::-webkit-scrollbar{height:8px}
     .carousel::-webkit-scrollbar-track{background:rgba(255,255,255,0.02); border-radius:10px}
     .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12); border-radius:10px}
+
+    /* Carousel items: no cropping, images control height */
     .carousel-item{
-  flex: 0 0 220px;
-  scroll-snap-align: center;
-  background: linear-gradient(180deg,var(--panel), #111315);
-  border-radius: 14px;
-  padding: 10px;
-  border: 1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
-  height: auto;            /* fjern faste høyder */
-  display: block;
-}
+      flex:0 0 220px;
+      scroll-snap-align:center;
+      background:linear-gradient(180deg,var(--panel), #111315);
+      border-radius:12px;
+      padding:8px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+      height:auto;
+      display:block;
+    }
+    .carousel-item img{
+      width:100%;
+      height:auto;         /* behold proporsjoner - ingen cropping */
+      object-fit:contain;
+      display:block;
+      border-radius:8px;
+      max-height:none;
+    }
 
-.carousel-item img{
-  width: 100%;
-  height: auto;            /* viktig: behold proporsjoner, ingen cropping */
-  object-fit: contain;
-  display: block;
-  border-radius: 8px;
-  max-height: none;
-}
-
-/* Mobil: større slides, fortsatt ingen beskjæring */
-@media (max-width:780px) {
-  .carousel-item { flex: 0 0 78%; padding: 12px; height: auto; }
-  .carousel-item img { width: 100%; height: auto; object-fit: contain; }
-}
-
-    /* Details — make cards more spacious on mobile */
+    /* Details */
     .details{
       margin-top:2rem;
       background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
@@ -206,16 +176,10 @@
       padding:1.2rem;
       border:1px solid rgba(255,255,255,0.02);
     }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:1.2rem;
-    }
+    .grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:1.2rem}
     .card{
       background:var(--panel);
-      padding:1.1rem;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.02);
+      padding:1.1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
     }
     h3{margin:0 0 .6rem 0; font-size:1.02rem; font-weight:800}
     p, li{color:var(--muted); font-size:0.98rem}
@@ -230,23 +194,40 @@
     @media (max-width:780px){
       .wrap{padding:0.9rem}
       header{padding:0.5rem 0 0.8rem}
-      .hero{grid-template-columns:1fr; gap:1rem; padding:1rem 0 1.6rem}
+      .hero{
+        grid-template-columns:1fr;
+        gap:1rem;
+        padding:1rem 0 1.6rem;
+      }
       .hero-right{display:none} /* hide main image on mobile to avoid duplicate */
-      .brand-logo{width:48px;height:48px}
-      h1{font-size:1.6rem;margin-top:0.6rem}
-      .lead{font-size:0.95rem;margin-bottom:1rem}
-      .price{font-size:0.82rem;padding:0.28rem 0.72rem}
 
-      /* Carousel: make slides larger and centered */
+      /* TOPP - mer luft for mobil */
+      .hero-left{padding:0.2rem 0}
+      .price{font-size:0.82rem;padding:0.28rem 0.72rem;margin-bottom:8px}
+      h1{
+        font-size:1.7rem;
+        margin:0.6rem 0 0.9rem;
+        line-height:1.18;
+      }
+      .lead{
+        font-size:0.98rem;
+        margin-bottom:1.15rem;
+        line-height:1.6; /* økt line-height for bedre lesbarhet */
+      }
+      .cta-row{margin-top:0.8rem}
+
+      .brand-logo{width:48px;height:48px}
+      .brand-title{font-size:1rem}
+      .badge{font-size:0.78rem;padding:0.32rem 0.7rem}
+
+      /* Carousel: større slides, fortsatt ingen beskjæring */
       .carousel{padding:0.6rem 0 0; gap:0.8rem}
-      .carousel-item{flex:0 0 78%; padding:12px}
-      .carousel-item img{height: auto; max-height:58vh; object-fit:cover}
+      .carousel-item{flex:0 0 78%; padding:12px; height:auto}
+      .carousel-item img{width:100%; height:auto; object-fit:contain}
 
       /* Grid becomes single column with nicer spacing */
       .grid{grid-template-columns:1fr; gap:1rem}
       .card{padding:1.1rem}
-      .brand-title{font-size:1rem}
-      .badge{font-size:0.78rem;padding:0.32rem 0.7rem}
     }
 
     /* Desktop wider scrollbar for big screens */
