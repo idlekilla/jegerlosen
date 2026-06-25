@@ -172,15 +172,31 @@
     .carousel::-webkit-scrollbar-track{background:rgba(255,255,255,0.02); border-radius:10px}
     .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12); border-radius:10px}
     .carousel-item{
-      flex:0 0 220px;
-      scroll-snap-align:center;
-      background:linear-gradient(180deg,var(--panel), #111315);
-      border-radius:12px;
-      padding:8px;
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.45);
-    }
-    .carousel-item img{width:100%; border-radius:8px; display:block}
+  flex: 0 0 220px;
+  scroll-snap-align: center;
+  background: linear-gradient(180deg,var(--panel), #111315);
+  border-radius: 14px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+  height: auto;            /* fjern faste høyder */
+  display: block;
+}
+
+.carousel-item img{
+  width: 100%;
+  height: auto;            /* viktig: behold proporsjoner, ingen cropping */
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  max-height: none;
+}
+
+/* Mobil: større slides, fortsatt ingen beskjæring */
+@media (max-width:780px) {
+  .carousel-item { flex: 0 0 78%; padding: 12px; height: auto; }
+  .carousel-item img { width: 100%; height: auto; object-fit: contain; }
+}
 
     /* Details — make cards more spacious on mobile */
     .details{
