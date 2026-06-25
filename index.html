@@ -144,20 +144,31 @@
             overflow-x: auto;
             scroll-behavior: smooth;
             padding: 1rem 0;
-            scrollbar-width: none;
         }
 
+        /* Skrollestripe lagt til for PC-preview */
         .carousel-track::-webkit-scrollbar {
-            display: none;
+            height: 8px;
+        }
+        .carousel-track::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .carousel-track::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .carousel-item {
-        flex: 0 0 260px;
-        background-color: var(--card-bg);
-        border-radius: 16px;
-        padding: 0.4rem;
-        border: 1px solid rgba(255, 255, 255, 0.03);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            flex: 0 0 260px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 0.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .carousel-item img {
@@ -241,7 +252,7 @@
 
         /* RESPONSIVE JUSTERINGER */
         @media (max-width: 900px) {
-            .carousel-item { flex: 0 0 calc(50% - 0.75rem); }
+            .carousel-item { flex: 0 0 240px; }
             .hero h1 { font-size: 2.5rem; }
             .details-section { border-radius: 16px; padding: 3rem 0; }
         }
@@ -250,6 +261,10 @@
             .carousel-item { flex: 0 0 85%; }
             .hero h1 { font-size: 2rem; }
             .details-grid { gap: 2rem; }
+            /* Skjul rullebjelken på mobil */
+            .carousel-track::-webkit-scrollbar {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -319,7 +334,7 @@
                         <p>Over 1200 kvalitetssikrede spørsmål som dekker hele pensum. Spørsmålene har realistiske distraktorer som ruster deg til den ekte eksamenen.</p>
                         
                         <h3>Lær av dine feil</h3>
-                        <p>Ingen tørre fasitsvar. Ved å trykke på info-ikonet etter hvert spørsmål, får du en utvidet info og dypere forklaring, slik at du forstår teorien bak og lærer av feilene dine.</p>
+                        <p>Ved å trykke på info-ikonet etter hvert spørsmål, får du en utvidet info og dypere forklaring, slik at du forstår teorien bak og lærer av feilene dine.</p>
                     </div>
 
                     <div class="info-block">
