@@ -18,6 +18,7 @@
       --ff: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
+    /* Reset / base */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -30,58 +31,68 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.5;
+      -webkit-font-feature-settings: "kern" 1;
+      font-feature-settings: "kern" 1;
     }
 
     .wrap{
       max-width:var(--max-width);
       margin:0 auto;
-      padding:1.25rem;
+      padding:1rem;
     }
 
+    /* Header */
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-      padding:0.75rem 0 1.25rem;
+      padding:0.5rem 0 0.9rem;
+      position:sticky;
+      top:0;
+      background: linear-gradient(180deg, rgba(11,15,16,0.85), rgba(11,15,16,0.6));
+      backdrop-filter: blur(6px);
+      z-index:20;
+      border-bottom:1px solid rgba(255,255,255,0.02);
     }
 
     .brand{display:flex;align-items:center;gap:12px}
     .brand-logo{
-      width:52px;height:52px;border-radius:10px;
+      width:48px;height:48px;border-radius:10px;
       background:linear-gradient(135deg,#111 0%, rgba(255,255,255,0.02) 100%);
       display:flex;align-items:center;justify-content:center;overflow:hidden;
       box-shadow: 0 6px 18px rgba(0,0,0,0.45);border:1px solid var(--glass);
+      flex-shrink:0;
     }
     .brand-logo img{width:100%; height:100%; object-fit:cover; display:block}
-    .brand-title{font-weight:800;letter-spacing:-0.02em;font-size:1.05rem}
-    .tagline{color:var(--muted);font-size:0.85rem;margin-top:2px}
+    .brand-title{font-weight:800;letter-spacing:-0.02em;font-size:1.02rem}
+    .tagline{color:var(--muted);font-size:0.82rem;margin-top:2px}
 
     .badge{
       background: linear-gradient(180deg,var(--glass), rgba(255,255,255,0.02));
       color:var(--muted);
       border-radius:999px;
-      padding:0.4rem 0.9rem;
+      padding:0.36rem 0.9rem;
       font-weight:700;
       font-size:0.82rem;
       border:1px solid rgba(255,255,255,0.03);
       white-space:nowrap;
     }
 
-    /* Hero */
+    /* HERO */
     .hero{
       display:grid;
-      grid-template-columns: 1fr 380px;
-      gap:1.4rem;
+      grid-template-columns: 1fr 360px;
+      gap:1.2rem;
       align-items:center;
-      padding:1.8rem 0 2.4rem;
+      padding:1.4rem 0 1.8rem;
     }
     .hero-left{max-width:720px}
     .price{
       display:inline-block;
       background: linear-gradient(180deg, rgba(58,90,64,0.18), rgba(58,90,64,0.12));
       color:#c7d7b9;
-      padding:0.32rem 0.8rem;
+      padding:0.34rem 0.78rem;
       border-radius:999px;
       font-weight:800;
       font-size:0.86rem;
@@ -89,18 +100,19 @@
     }
 
     h1{
-      font-size:2.2rem;
-      margin:0.8rem 0;
+      font-size:2.05rem;
+      margin:0.7rem 0;
       line-height:1.08;
       letter-spacing:-0.02em;
+      -webkit-font-smoothing:antialiased;
     }
 
     .lead{
       color:var(--muted);
       font-size:1rem;
-      margin-bottom:1.1rem;
+      margin-bottom:1rem;
       max-width:60ch;
-      line-height:1.55;
+      line-height:1.6;
     }
 
     .cta-row{
@@ -117,39 +129,41 @@
       gap:10px;
       background:linear-gradient(180deg,var(--accent),var(--accent-2));
       color:white;
-      padding:0.8rem 1.1rem;
-      border-radius:10px;
+      padding:0.86rem 1.15rem;
+      border-radius:12px;
       text-decoration:none;
-      font-weight:700;
-      box-shadow: 0 8px 26px rgba(30,40,25,0.22);
+      font-weight:800;
+      box-shadow: 0 10px 30px rgba(30,40,25,0.22);
       border:1px solid rgba(255,255,255,0.04);
       transition:transform .12s ease, box-shadow .12s ease, opacity .12s;
-      font-size:0.95rem;
+      font-size:0.98rem;
     }
     .btn:active{transform:translateY(1px)}
+    .btn:focus{outline:3px solid rgba(95,133,96,0.18); outline-offset:2px}
 
+    /* Phone mock */
     .hero-right{display:flex;justify-content:center;align-items:center}
     .phone-mock{
-      width:300px;border-radius:22px;background: linear-gradient(180deg,#0c1212, #091010);
+      width:320px;border-radius:22px;background: linear-gradient(180deg,#0c1212, #091010);
       padding:14px;box-shadow: 0 26px 50px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03);
     }
-    .phone-mock img{width:100%; border-radius:10px; display:block}
+    .phone-mock img{width:100%; border-radius:12px; display:block; object-fit:cover; height:auto}
 
     /* Showcase carousel */
     .showcase{margin-top:1rem;padding:2rem 0}
-    .section-title{font-size:1.2rem;margin-bottom:0.9rem;font-weight:800}
+    .section-title{font-size:1.15rem;margin-bottom:0.9rem;font-weight:800}
 
     .carousel{
       display:flex;gap:0.9rem;overflow-x:auto;padding:0.9rem 0 0;
       scroll-snap-type:x mandatory;-webkit-overflow-scrolling: touch;
+      scroll-padding-left:1rem;
     }
     .carousel::-webkit-scrollbar{height:8px}
     .carousel::-webkit-scrollbar-track{background:rgba(255,255,255,0.02); border-radius:10px}
     .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12); border-radius:10px}
 
-    /* Carousel items: no cropping, images control height */
     .carousel-item{
-      flex:0 0 220px;
+      flex:0 0 240px;
       scroll-snap-align:center;
       background:linear-gradient(180deg,var(--panel), #111315);
       border-radius:12px;
@@ -158,19 +172,20 @@
       box-shadow: 0 10px 24px rgba(0,0,0,0.45);
       height:auto;
       display:block;
+      transition:transform .18s ease;
     }
+    .carousel-item:active, .carousel-item:focus{transform:scale(.995)}
     .carousel-item img{
       width:100%;
-      height:auto;         /* behold proporsjoner - ingen cropping */
+      height:auto;
       object-fit:contain;
       display:block;
       border-radius:8px;
-      max-height:none;
     }
 
     /* Details */
     .details{
-      margin-top:2rem;
+      margin-top:1.6rem;
       background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
       border-radius:12px;
       padding:1.2rem;
@@ -186,52 +201,64 @@
     ul{padding-left:1rem;margin-top:.4rem}
 
     /* Footer */
-    footer{margin-top:2.2rem;padding:1.6rem 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+    footer{margin-top:2rem;padding:1.6rem 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
     .footer-qr{width:108px;height:108px;display:block;margin:0 auto 1rem;border-radius:12px;overflow:hidden;background:#fff;padding:8px}
     footer h4{color:var(--text);margin:0.5rem 0 0.7rem;font-size:1.05rem}
 
-    /* RESPONSIVE: Mobile adjustments for spacing and layout */
+    /* ===== MOBILE ADJUSTMENTS ===== */
     @media (max-width:780px){
       .wrap{padding:0.9rem}
-      header{padding:0.5rem 0 0.8rem}
+      header{padding:0.45rem 0 0.65rem}
       .hero{
         grid-template-columns:1fr;
-        gap:1rem;
-        padding:1rem 0 1.6rem;
+        gap:0.9rem;
+        padding:0.9rem 0 1.2rem;
       }
-      .hero-right{display:none} /* hide main image on mobile to avoid duplicate */
 
-      /* TOPP - mer luft for mobil */
-      .hero-left{padding:0.2rem 0}
-      .price{font-size:0.82rem;padding:0.28rem 0.72rem;margin-bottom:8px}
+      /* Vis telefonmock på mobil (mindre og sentrert) */
+      .hero-right{display:flex;justify-content:center}
+      .phone-mock{width:220px;padding:10px;border-radius:16px}
+
+      .hero-left{padding:0}
+      .price{font-size:0.78rem;padding:0.24rem 0.64rem;margin-bottom:8px}
       h1{
-        font-size:1.7rem;
-        margin:0.6rem 0 0.9rem;
+        font-size:1.45rem;
+        margin:0.45rem 0 0.6rem;
         line-height:1.18;
       }
       .lead{
         font-size:0.98rem;
-        margin-bottom:1.15rem;
-        line-height:1.6; /* økt line-height for bedre lesbarhet */
+        margin-bottom:1rem;
+        line-height:1.65;
       }
-      .cta-row{margin-top:0.8rem}
 
-      .brand-logo{width:48px;height:48px}
-      .brand-title{font-size:1rem}
-      .badge{font-size:0.78rem;padding:0.32rem 0.7rem}
+      .cta-row{margin-top:0.6rem}
+      .btn{padding:0.78rem 0.92rem;font-size:0.96rem;border-radius:10px}
 
-      /* Carousel: større slides, fortsatt ingen beskjæring */
+      .brand-logo{width:44px;height:44px}
+      .brand-title{font-size:0.98rem}
+      .badge{font-size:0.76rem;padding:0.28rem 0.66rem}
+
+      /* Carousel: større slides, klikkfelt forbedret */
       .carousel{padding:0.6rem 0 0; gap:0.8rem}
-      .carousel-item{flex:0 0 78%; padding:12px; height:auto}
+      .carousel-item{flex:0 0 78%; padding:10px}
       .carousel-item img{width:100%; height:auto; object-fit:contain}
 
-      /* Grid becomes single column with nicer spacing */
+      /* Grid -> kolonne */
       .grid{grid-template-columns:1fr; gap:1rem}
-      .card{padding:1.1rem}
+      .card{padding:1.05rem}
     }
 
-    /* Desktop wider scrollbar for big screens */
+    /* TOUCH TARGETS: øk interaktive elementer for mobil */
+    @media (pointer:coarse){
+      .btn{min-height:48px}
+      .carousel-item{touch-action:pan-x}
+    }
+
+    /* Større skjermer: finjustering */
     @media (min-width:1200px){
+      .hero{grid-template-columns: 1fr 420px; gap:1.6rem}
+      .phone-mock{width:360px}
       .carousel::-webkit-scrollbar{height:10px}
       .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.14)}
     }
@@ -246,7 +273,7 @@
         </div>
         <div>
           <div class="brand-title">JegerLosen</div>
-          <div class="tagline">Din los mot Jegerprøven</div>
+          <div class="tagline">Din los mot jegerprøven</div>
         </div>
       </div>
 
@@ -371,6 +398,9 @@
           carousel.scrollTo({ left, behavior: 'smooth' });
         });
       });
+
+      // Forbedring: gi første item fokusable for keyboard/touch
+      Array.from(carousel.querySelectorAll('.carousel-item')).forEach(it => it.setAttribute('tabindex','0'));
     })();
   </script>
 </body>
